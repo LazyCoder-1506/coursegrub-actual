@@ -6,11 +6,11 @@ export default function App() {
   return (
     <Grid container direction='column'>
       <Grid item container>
-        <Grid item xs={0} lg={1}></Grid>
-        <Grid item xs={12} lg={10}>
+        <Grid item xs={0} lg={2}></Grid>
+        <Grid item xs={12} lg={8}>
           <CourseCard></CourseCard>
         </Grid>
-        <Grid item xs={0} lg={1}></Grid>
+        <Grid item xs={0} lg={2}></Grid>
       </Grid>
     </Grid>
   );
