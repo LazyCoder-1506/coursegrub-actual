@@ -68,8 +68,7 @@ export default function CourseCard() {
         <Box
           component={Grid}
           item
-          xs={1}
-          justify='flex-end'>
+          xs={1}>
           <IconButton>
             <BookmarkBorderIcon />
           </IconButton>
@@ -118,11 +117,15 @@ export default function CourseCard() {
           disableElevation>
           KNOW MORE
         </Button>
-        <Button
-          color="primary"
-          size='small'>
-          GO TO COURSE
+        <Box
+        ml={2}
+        display='inline'>
+          <Button
+            color="primary"
+            size='small'>
+            GO TO COURSE
         </Button>
+        </Box>
       </Box>
     </Box>
   );
