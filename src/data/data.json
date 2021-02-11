@@ -1,0 +1,35 @@
+[
+  {
+    "id": 0,
+    "name": "Python for Everybody",
+    "instructors": "Charles Severance",
+    "university": "University of Michigan",
+    "platform": "Coursera",
+    "price": "$14.99 (Financial Aid available)",
+    "certificate": "Certificate Available",
+    "stars": 5,
+    "reviews": 462
+  },
+  {
+    "id": 1,
+    "name": "Financial Marketing",
+    "instructors": "John Doe",
+    "university": null,
+    "platform": "YouTube",
+    "price": "Free",
+    "certificate": "No Certificate Available",
+    "stars": 3,
+    "reviews": 59
+  },
+  {
+    "id": 2,
+    "name": "Deep Learning with AI",
+    "instructors": "Angela Yu",
+    "university": "University of California",
+    "platform": "Udemy",
+    "price": "$25.99",
+    "certificate": "Certificate Available",
+    "stars": 4,
+    "reviews": 180
+  }
+]

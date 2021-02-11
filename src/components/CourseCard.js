@@ -1,29 +1,37 @@
 import React from 'react';
-import { Box, Grid, Typography, IconButton, Button } from '@material-ui/core';
+import { Box, Grid, Typography, IconButton, Button, Checkbox } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import StarRateIcon from '@material-ui/icons/StarRate';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import Courses from '../data/data.json';
 
 const useStyles = makeStyles(() => ({
   courseCard: {
     backgroundColor: '#fff',
+    '&:hover': {
+      boxShadow: '0px 3px 15px 5px #ddd'
+    }
   },
   w100: {
     width: '100%',
+  },
+  goldenStar: {
+    color: '#F5DE00',
   }
 }));
 
 export default function CourseCard() {
   const classes = useStyles();
 
-  return (
+  return Courses.map((CourseDetail, index) => (
     <Box
       component={Grid}
       container
       className={classes.courseCard}
       boxShadow={1}
-      mb={5}>
-      <Box
+      my={3}>
+      {/* <Box
         component={Grid}
         item
         xs={3}
@@ -32,12 +40,12 @@ export default function CourseCard() {
           src='https://images-na.ssl-images-amazon.com/images/I/81Ds1CB+6fL._RI_.jpg'
           width='100%'>
         </img>
-      </Box>
+      </Box> */}
       <Box
         component={Grid}
         item
         container
-        xs={9}
+        xs={12}
         p={2}>
         <Box
           component={Grid}
@@ -48,43 +56,48 @@ export default function CourseCard() {
             display='block'
             noWrap='true'
             className={classes.w100}>
-            Python for Everybody
+            { CourseDetail.name }
           </Typography>
           <Typography
             variant='h6'
             display='block'
             noWrap='true'
             className={classes.w100}>
-            Charles Severance - University of Michigan
+            { CourseDetail.instructors }{(CourseDetail.university) ? ' - ' + CourseDetail.university : ''}
           </Typography>
           <Typography
             variant='subtitle1'
             display='block'
             noWrap='true'
             className={classes.w100}>
-            Coursera
+            { CourseDetail.platform }
           </Typography>
         </Box>
         <Box
           component={Grid}
           item
-          xs={1}>
-          <IconButton>
-            <BookmarkBorderIcon />
-          </IconButton>
+          container
+          xs={1}
+          justify='flex-end'
+          alignItems='flex-start'>
+          <Checkbox
+            icon={ <FavoriteBorderIcon /> }
+            checkedIcon={ <FavoriteIcon /> }
+            inputProps={{ 'aria-label': 'Favorite' }}>
+          </Checkbox>
         </Box>
         <Box
           component={Grid}
           item
           xs={6}>
-          <StarRateIcon />
-          <StarRateIcon />
-          <StarRateIcon />
-          <StarRateIcon />
-          <StarRateIcon />
+          <StarRateIcon className={(CourseDetail.stars > 0) ? classes.goldenStar : ''} />
+          <StarRateIcon className={(CourseDetail.stars > 1) ? classes.goldenStar : ''} />
+          <StarRateIcon className={(CourseDetail.stars > 2) ? classes.goldenStar : ''} />
+          <StarRateIcon className={(CourseDetail.stars > 3) ? classes.goldenStar : ''} />
+          <StarRateIcon className={(CourseDetail.stars > 4) ? classes.goldenStar : ''} />
           <Typography
             variant='body1'>
-            456 reviews
+            { CourseDetail.reviews } reviews
           </Typography>
         </Box>
         <Box
@@ -95,12 +108,12 @@ export default function CourseCard() {
             variant='body2'
             align='right'
             paragraph='true'>
-            Certificate Available
+            { CourseDetail.certificate }
           </Typography>
           <Typography
             variant='body2'
             align='right'>
-            $14.99 (Financial Aid Available)
+            { CourseDetail.price }
           </Typography>
         </Box>
       </Box>
@@ -117,16 +130,7 @@ export default function CourseCard() {
           disableElevation>
           KNOW MORE
         </Button>
-        <Box
-        ml={2}
-        display='inline'>
-          <Button
-            color="primary"
-            size='small'>
-            GO TO COURSE
-        </Button>
-        </Box>
       </Box>
     </Box>
-  );
+  ));
 }
