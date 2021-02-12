@@ -6,6 +6,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CloseIcon from '@material-ui/icons/Close';
 import Courses from '../data/data.json';
+import SideBar from './SideBar'
 
 const useStyles = makeStyles(() => ({
   courseCard: {
@@ -151,9 +152,15 @@ export default function CourseCard() {
         onClose={toggleDrawer(false)}>
         <div
           className={classes.moreInfoSideBar}>
-          <IconButton onClick={toggleDrawer(false)}>
-            <CloseIcon />
-          </IconButton>
+          <Box
+            component={Grid}
+            container
+            justify='flex-end'>
+            <IconButton onClick={toggleDrawer(false)}>
+              <CloseIcon />
+            </IconButton>
+          </Box>
+          <SideBar />
         </div>
       </Drawer>
     </React.Fragment>
