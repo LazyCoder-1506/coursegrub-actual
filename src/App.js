@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
-import CourseCard from './components/CourseCard'
+import Content from './components/Content'
 
 export default function App() {
   return (
@@ -8,7 +8,7 @@ export default function App() {
       <Grid item container>
         <Grid item xs={false} lg={2}></Grid>
         <Grid item xs={12} lg={8}>
-          <CourseCard></CourseCard>
+          <Content></Content>
         </Grid>
         <Grid item xs={false} lg={2}></Grid>
       </Grid>

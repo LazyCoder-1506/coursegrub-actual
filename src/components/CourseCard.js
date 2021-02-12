@@ -5,7 +5,6 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CloseIcon from '@material-ui/icons/Close';
-import Courses from '../data/data.json';
 import SideBar from './SideBar'
 
 const useStyles = makeStyles(() => ({
@@ -27,16 +26,15 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function CourseCard() {
+export default function CourseCard(props) {
   const classes = useStyles();
 
   const [state, setState] = React.useState(false)
-
   const toggleDrawer = (open) => (event) => {
     setState(open)
   }
 
-  return Courses.map((CourseDetail, index) => (
+  return (
     <React.Fragment>
       <Box
         component={Grid}
@@ -69,21 +67,21 @@ export default function CourseCard() {
               display='block'
               noWrap='true'
               className={classes.w100}>
-              { CourseDetail.name }
+              { props.name }
             </Typography>
             <Typography
               variant='h6'
               display='block'
               noWrap='true'
               className={classes.w100}>
-              { CourseDetail.instructors }{(CourseDetail.university) ? ' - ' + CourseDetail.university : ''}
+              { props.instructors }{(props.university) ? ' - ' + props.university : ''}
             </Typography>
             <Typography
               variant='subtitle1'
               display='block'
               noWrap='true'
               className={classes.w100}>
-              { CourseDetail.platform }
+              { props.platform }
             </Typography>
           </Box>
           <Box
@@ -103,14 +101,14 @@ export default function CourseCard() {
             component={Grid}
             item
             xs={6}>
-            <StarRateIcon className={(CourseDetail.stars > 0) ? classes.goldenStar : ''} />
-            <StarRateIcon className={(CourseDetail.stars > 1) ? classes.goldenStar : ''} />
-            <StarRateIcon className={(CourseDetail.stars > 2) ? classes.goldenStar : ''} />
-            <StarRateIcon className={(CourseDetail.stars > 3) ? classes.goldenStar : ''} />
-            <StarRateIcon className={(CourseDetail.stars > 4) ? classes.goldenStar : ''} />
+            <StarRateIcon className={(props.stars > 0) ? classes.goldenStar : ''} />
+            <StarRateIcon className={(props.stars > 1) ? classes.goldenStar : ''} />
+            <StarRateIcon className={(props.stars > 2) ? classes.goldenStar : ''} />
+            <StarRateIcon className={(props.stars > 3) ? classes.goldenStar : ''} />
+            <StarRateIcon className={(props.stars > 4) ? classes.goldenStar : ''} />
             <Typography
               variant='body1'>
-              { CourseDetail.reviews } reviews
+              { props.reviews } reviews
             </Typography>
           </Box>
           <Box
@@ -121,12 +119,12 @@ export default function CourseCard() {
               variant='body2'
               align='right'
               paragraph='true'>
-              { CourseDetail.certificate }
+              { props.certificate }
             </Typography>
             <Typography
               variant='body2'
               align='right'>
-              { CourseDetail.price }
+              { props.price }
             </Typography>
           </Box>
         </Box>
@@ -164,5 +162,5 @@ export default function CourseCard() {
         </div>
       </Drawer>
     </React.Fragment>
-  ));
+  );
 }
