@@ -1,5 +1,7 @@
 import React from 'react'
-import { Tabs, Tab, Box, Typography, Grid } from '@material-ui/core'
+import { Tabs, Tab, Box, Typography, Grid, Checkbox, List, ListItem, ListItemText, Button } from '@material-ui/core'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 
 export default function SideBar(props) {
   const [value, setValue] = React.useState(0)
@@ -26,12 +28,25 @@ export default function SideBar(props) {
           <Box
             component={Grid}
             item
-            xs={12}
+            xs={11}
             my={5}>
             <Typography
               variant='h4'>
               { props.sideContent.name }
             </Typography>
+          </Box>
+          <Box
+            component={ Grid }
+            item
+            container
+            xs={1}
+            justify='flex-end'
+            alignItems='flex-start'>
+            <Checkbox
+              icon={ <FavoriteBorderIcon /> }
+              checkedIcon={ <FavoriteIcon /> }
+              inputProps={{ 'aria-label': 'Favorite' }}>
+            </Checkbox>
           </Box>
           <Box
             component={Grid}
@@ -60,8 +75,40 @@ export default function SideBar(props) {
             mb={1}>
             <Typography
               variant='body1'>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+              { props.sideContent.brief } 
             </Typography>
+          </Box>
+          <Box
+            component={ Grid }
+            item
+            xs={12}>
+            <Typography
+              variant='h6'>
+              Price : { props.sideContent.price }
+            </Typography>
+          </Box>
+          <Box
+            component={ Grid }
+            item
+            xs={12}>
+            <List
+              dense='true'>
+              <ListItem>
+                <ListItemText primary={`- ${props.sideContent.certificate}`} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary={`- ${props.sideContent.duration}`} />
+              </ListItem>
+            </List>
+          </Box>
+          <Box
+            component={ Grid }
+            item
+            xs={12}>
+            <Button
+              color="primary">
+              GO TO COURSE
+            </Button>
           </Box>
         </Box>
       </TabPanel>
