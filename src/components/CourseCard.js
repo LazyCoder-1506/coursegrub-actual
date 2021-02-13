@@ -29,9 +29,9 @@ const useStyles = makeStyles(() => ({
 export default function CourseCard(props) {
   const classes = useStyles();
 
-  const [state, setState] = React.useState(false)
+  const [drawer, drawerState] = React.useState(false)
   const toggleDrawer = (open) => (event) => {
-    setState(open)
+    drawerState(open)
   }
 
   return (
@@ -146,8 +146,8 @@ export default function CourseCard(props) {
       </Box>
       <Drawer
         anchor={ 'right' }
-        open={ state }
-        onClose={toggleDrawer(false)}>
+        open={ drawer }
+        onClose={() => toggleDrawer(false)}>
         <div
           className={classes.moreInfoSideBar}>
           <Box
