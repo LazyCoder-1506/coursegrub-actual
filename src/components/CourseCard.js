@@ -30,9 +30,12 @@ export default function CourseCard(props) {
   const classes = useStyles();
 
   const [isDrawerOpen, drawerState] = React.useState(false)
-  const toggleDrawer = () => (event) => {
-    drawerState(!isDrawerOpen)
-    console.log(isDrawerOpen)
+  const closeDrawer = () => (event) => {
+    drawerState(false)
+  }
+  const openDrawer = () => (event) => {
+    drawerState(true);
+    props.handleCourseClick(props.index)
   }
 
   return (
@@ -140,7 +143,7 @@ export default function CourseCard(props) {
             color="primary"
             size='small'
             disableElevation
-            onClick={() => { toggleDrawer(); props.handleCourseClick(props.index); }}>
+            onClick={openDrawer()}>
             KNOW MORE
           </Button>
         </Box>
@@ -148,18 +151,19 @@ export default function CourseCard(props) {
       <Drawer
         anchor={ 'right' }
         open={ isDrawerOpen }
-        onClose={() => toggleDrawer()}>
+        onClose={() => closeDrawer()}>
         <div
           className={ classes.moreInfoSideBar }>
           <Box
             component={ Grid }
             container
             justify='flex-end'>
-            <IconButton onClick={ toggleDrawer() }>
+            <IconButton onClick={ closeDrawer() }>
               <CloseIcon />
             </IconButton>
           </Box>
-          <SideBar />
+          <SideBar 
+            sideContent={ props.sideContent }/>
         </div>
       </Drawer>
     </React.Fragment>

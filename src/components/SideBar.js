@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tabs, Tab, Box, Typography, Grid } from '@material-ui/core'
 
-export default function SideBar() {
+export default function SideBar(props) {
   const [value, setValue] = React.useState(0)
   const handleTabs = (e, val) => {
     setValue(val)
@@ -14,7 +14,7 @@ export default function SideBar() {
         onChange={handleTabs}
         variant='fullWidth'>
         <Tab label='Course Overview' />
-        <Tab label='Reviews' />
+        <Tab label={`Reviews (${props.sideContent.reviews})`} />
       </Tabs>
       <TabPanel
         value={value}
@@ -30,7 +30,7 @@ export default function SideBar() {
             my={5}>
             <Typography
               variant='h4'>
-              Python for Anybody
+              { props.sideContent.name }
             </Typography>
           </Box>
           <Box
@@ -40,7 +40,7 @@ export default function SideBar() {
             my={5}>
             <Typography
               variant='h5'>
-              Charles Severance - University of Michigan
+              { props.sideContent.instructors }{(props.sideContent.university) ? ' - ' + props.sideContent.university : ''}
             </Typography>
           </Box>
           <Box
@@ -50,7 +50,7 @@ export default function SideBar() {
             mb={5}>
             <Typography
               variant='h5'>
-              Coursera
+              { props.sideContent.platform }
             </Typography>
           </Box>
           <Box
