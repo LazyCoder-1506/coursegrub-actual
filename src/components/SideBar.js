@@ -30,7 +30,7 @@ export default function SideBar() {
             my={5}>
             <Typography
               variant='h4'>
-              Python for Everybody
+              Python for Anybody
             </Typography>
           </Box>
           <Box
