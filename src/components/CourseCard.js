@@ -29,9 +29,10 @@ const useStyles = makeStyles(() => ({
 export default function CourseCard(props) {
   const classes = useStyles();
 
-  const [drawer, drawerState] = React.useState(false)
+  const [isDrawerOpen, drawerState] = React.useState(false)
   const toggleDrawer = () => (event) => {
-    drawerState(!drawer)
+    drawerState(!isDrawerOpen)
+    console.log(isDrawerOpen)
   }
 
   return (
@@ -85,7 +86,7 @@ export default function CourseCard(props) {
             </Typography>
           </Box>
           <Box
-            component={Grid}
+            component={ Grid }
             item
             container
             xs={1}
@@ -98,7 +99,7 @@ export default function CourseCard(props) {
             </Checkbox>
           </Box>
           <Box
-            component={Grid}
+            component={ Grid }
             item
             xs={6}>
             <StarRateIcon className={(props.stars > 0) ? classes.goldenStar : ''} />
@@ -112,7 +113,7 @@ export default function CourseCard(props) {
             </Typography>
           </Box>
           <Box
-            component={Grid}
+            component={ Grid }
             item
             xs={6}>
             <Typography
@@ -129,7 +130,7 @@ export default function CourseCard(props) {
           </Box>
         </Box>
         <Box
-          component={Grid}
+          component={ Grid }
           item
           xs={12}
           px={2}
@@ -139,22 +140,22 @@ export default function CourseCard(props) {
             color="primary"
             size='small'
             disableElevation
-            onClick={toggleDrawer()}>
+            onClick={() => { toggleDrawer(); props.handleCourseClick(props.index); }}>
             KNOW MORE
           </Button>
         </Box>
       </Box>
       <Drawer
         anchor={ 'right' }
-        open={ drawer }
+        open={ isDrawerOpen }
         onClose={() => toggleDrawer()}>
         <div
-          className={classes.moreInfoSideBar}>
+          className={ classes.moreInfoSideBar }>
           <Box
-            component={Grid}
+            component={ Grid }
             container
             justify='flex-end'>
-            <IconButton onClick={toggleDrawer()}>
+            <IconButton onClick={ toggleDrawer() }>
               <CloseIcon />
             </IconButton>
           </Box>

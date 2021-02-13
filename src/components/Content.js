@@ -3,6 +3,11 @@ import Courses from '../data/data.json'
 import CourseCard from './CourseCard'
 
 export default function Content () {
+  const [sideContent, setSideContent] = React.useState('')
+  const handleCourseClick = (index) => {
+    let clickedCourse = Courses.filter(c => c.id == index)
+    setSideContent(...clickedCourse)
+  }
 
   const courseList = Courses.map(course => 
     <CourseCard
@@ -15,7 +20,8 @@ export default function Content () {
       price={course.price}
       certificate={course.certificate}
       stars={course.stars}
-      reviews={course.reviews} />)
+      reviews={course.reviews}
+      handleCourseClick={handleCourseClick} />)
   
   return (
     <div>
