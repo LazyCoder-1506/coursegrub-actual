@@ -1,0 +1,58 @@
+[
+  {
+    "id": 0,
+    "courseId": 0,
+    "name": "Lionel Messi",
+    "stars": 5,
+    "date": "5 Jan, 2019",
+    "review": "Very good introduction to basic programming. Very easy for beginners in python who have already some programming background - but still extremely useful to quickly and efficiently learn python basics."
+  },
+  {
+    "id": 1,
+    "courseId": 2,
+    "name": "Cristiano Ronaldo",
+    "stars": 4,
+    "date": "5 Jun, 2019",
+    "review": "I highly appreciated the interviews at the end of some weeks. I am currently trying to transition from a research background in Systems/Computational Biology to work professionally in deep learning :)"
+  },
+  {
+    "id": 2,
+    "courseId": 1,
+    "name": "Virat Kohli",
+    "stars": 3,
+    "date": "9 Apr, 2018",
+    "review": "perhaps will be uselful have more examples, or videos with examples to understanding better concepts."
+  },
+  {
+    "id": 3,
+    "courseId": 2,
+    "name": "Tom Cruise",
+    "stars": 5,
+    "date": "19 Dec, 2018",
+    "review": "I have learnt a lot of tricks with numpy and I believe I have a better understanding of what a NN does. Now it does not look like a black box anymore. I look forward to see what's in the next courses!"
+  },
+  {
+    "id": 4,
+    "courseId": 0,
+    "name": "Mark Zuckerberg",
+    "stars": 5,
+    "date": "36 Mar, 2017",
+    "review": "Great introduction to Python and programming as a whole. Everything is broken down making it easy to understand. Had zero programming experience before and this class made it easy and fun to get into."
+  },
+  {
+    "id": 5,
+    "courseId": 1,
+    "name": "Elon Musk",
+    "stars": 5,
+    "date": "8 Aug, 2020",
+    "review": "An excellent well-rounded course and perfect for anyone who would like to gain some insight into financial practices. I would highly recommend this course."
+  },
+  {
+    "id": 6,
+    "courseId": 0,
+    "name": "Steve Jobs",
+    "stars": 4,
+    "date": "1 Feb, 2020",
+    "review": "Excellent, although, even without having any programming experience except some Visual Basic at school about ten years ago, in my opinion the course could have been more difficult and the pace quicker."
+  }
+]

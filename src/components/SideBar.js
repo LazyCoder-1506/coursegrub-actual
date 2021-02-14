@@ -2,12 +2,24 @@ import React from 'react'
 import { Tabs, Tab, Box, Typography, Grid, Checkbox, List, ListItem, ListItemText, Button } from '@material-ui/core'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import AllReviews from '../data/reviews.json'
+import Reviews from './Reviews'
 
 export default function SideBar(props) {
   const [value, setValue] = React.useState(0)
   const handleTabs = (e, val) => {
     setValue(val)
   }
+
+  const courseReviews = AllReviews.filter(r => r.courseId == props.sideContent.id)
+  const reviewCards = courseReviews.map(reviewItem =>
+    <Reviews
+      key={reviewItem.id}
+      name={reviewItem.name}
+      courseId={reviewItem.courseId}
+      stars={reviewItem.stars}
+      review={reviewItem.review}
+      date={reviewItem.date} />)
 
   return (
     <div>
@@ -24,7 +36,8 @@ export default function SideBar(props) {
         style={{padding : '16px'}}>
         <Box
           component={ Grid }
-          container>
+          container
+          padding={3}>
           <Box
             component={Grid}
             item
@@ -43,8 +56,8 @@ export default function SideBar(props) {
             justify='flex-end'
             alignItems='flex-start'>
             <Checkbox
-              icon={ <FavoriteBorderIcon /> }
-              checkedIcon={ <FavoriteIcon /> }
+              icon={ <FavoriteBorderIcon fontSize={'large'} /> }
+              checkedIcon={ <FavoriteIcon fontSize={'large'} /> }
               inputProps={{ 'aria-label': 'Favorite' }}>
             </Checkbox>
           </Box>
@@ -115,7 +128,12 @@ export default function SideBar(props) {
       <TabPanel
         value={value}
         index={1}>
-        Reviews
+        <Box
+          component={ Grid }
+          container
+          padding={3}>
+          { reviewCards }
+        </Box>
       </TabPanel>
     </div>
   );
