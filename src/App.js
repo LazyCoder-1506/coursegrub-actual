@@ -7,7 +7,8 @@ export default function App() {
     <Grid container direction='column'>
       <Grid item container>
         <Grid item xs={false} lg={2}></Grid>
-        <Grid item xs={12} lg={8}>
+        <Grid item xs={false} lg={2}></Grid>
+        <Grid item xs={12} lg={6}>
           <Content></Content>
         </Grid>
         <Grid item xs={false} lg={2}></Grid>

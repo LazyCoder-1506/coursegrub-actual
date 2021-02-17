@@ -45,7 +45,7 @@ export default function CourseCard(props) {
         container
         className={classes.courseCard}
         boxShadow={1}
-        my={3}>
+        my={2}>
         {/* <Box
           component={Grid}
           item
@@ -61,27 +61,28 @@ export default function CourseCard(props) {
           item
           container
           xs={12}
-          p={2}>
+          paddingY={1}
+          paddingX={2}>
           <Box
             component={Grid}
             item
             xs={11}>
             <Typography
-              variant='h5'
+              variant='subtitle1'
               display='block'
               noWrap='true'
               className={classes.w100}>
-              { props.name }
+              <strong>{ props.name }</strong>
             </Typography>
             <Typography
-              variant='h6'
+              variant='body1'
               display='block'
               noWrap='true'
               className={classes.w100}>
               { props.instructors }{(props.university) ? ' - ' + props.university : ''}
             </Typography>
             <Typography
-              variant='subtitle1'
+              variant='body1'
               display='block'
               noWrap='true'
               className={classes.w100}>
@@ -105,13 +106,13 @@ export default function CourseCard(props) {
             component={ Grid }
             item
             xs={6}>
-            <StarRateIcon className={(props.stars > 0) ? classes.goldenStar : ''} />
-            <StarRateIcon className={(props.stars > 1) ? classes.goldenStar : ''} />
-            <StarRateIcon className={(props.stars > 2) ? classes.goldenStar : ''} />
-            <StarRateIcon className={(props.stars > 3) ? classes.goldenStar : ''} />
-            <StarRateIcon className={(props.stars > 4) ? classes.goldenStar : ''} />
+            <StarRateIcon fontSize='small' className={(props.stars > 0) ? classes.goldenStar : ''} />
+            <StarRateIcon fontSize='small' className={(props.stars > 1) ? classes.goldenStar : ''} />
+            <StarRateIcon fontSize='small' className={(props.stars > 2) ? classes.goldenStar : ''} />
+            <StarRateIcon fontSize='small' className={(props.stars > 3) ? classes.goldenStar : ''} />
+            <StarRateIcon fontSize='small' className={(props.stars > 4) ? classes.goldenStar : ''} />
             <Typography
-              variant='body1'>
+              variant='body2'>
               { props.reviews } reviews
             </Typography>
           </Box>
@@ -121,8 +122,7 @@ export default function CourseCard(props) {
             xs={6}>
             <Typography
               variant='body2'
-              align='right'
-              paragraph='true'>
+              align='right'>
               { props.certificate }
             </Typography>
             <Typography
