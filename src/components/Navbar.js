@@ -3,7 +3,7 @@ import { AppBar, Button, Toolbar, Typography } from '@material-ui/core'
 
 export default function Navbar () {
   return (
-    <AppBar position='static'>
+    <AppBar position='sticky'>
       <Toolbar>
         <Typography
           variant='h6'>
