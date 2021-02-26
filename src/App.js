@@ -1,30 +1,19 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
-import Content from './components/Content'
 import Navbar from './components/Navbar'
-import SearchBar from './components/SearchBar'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import HomePage from './components/HomePage'
+import CoursePage from './components/CoursePage'
 
 export default function App() {
   return (
     <React.Fragment>
-      <Navbar />
-      <Grid container direction='column'>
-        <Grid item container>
-          <Grid item xs={false} lg={2}></Grid>
-          <Grid item xs={12} lg={8}>
-            <SearchBar />
-          </Grid>
-          <Grid item xs={false} lg={2}></Grid>
-        </Grid>
-        <Grid item container>
-          <Grid item xs={false} lg={2}></Grid>
-          <Grid item xs={false} lg={2}></Grid>
-          <Grid item xs={12} lg={6}>
-            <Content />
-          </Grid>
-          <Grid item xs={false} lg={2}></Grid>
-        </Grid>
-      </Grid>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path='/' exact component={ HomePage } />
+          <Route path='/courses' component={ CoursePage } />
+        </Switch>
+      </Router>
     </React.Fragment>
   );
 }
