@@ -11,7 +11,8 @@ const useStyles = makeStyles(() => ({
   courseCard: {
     backgroundColor: '#fff',
     '&:hover': {
-      boxShadow: '0px 3px 15px 5px #ddd'
+      boxShadow: '0px 3px 15px 5px #ddd',
+      cursor: 'pointer'
     }
   },
   w100: {

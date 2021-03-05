@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 import Content from './Content'
 import SearchBar from './SearchBar'
+import FilterPanel from './FilterPanel'
 
 export default function CoursePage () {
   return (
@@ -16,7 +17,9 @@ export default function CoursePage () {
         </Grid>
         <Grid item container>
           <Grid item xs={false} lg={2}></Grid>
-          <Grid item xs={false} lg={2}></Grid>
+          <Grid item xs={false} lg={2}>
+            <FilterPanel />
+          </Grid>
           <Grid item xs={12} lg={6}>
             <Content />
           </Grid>
