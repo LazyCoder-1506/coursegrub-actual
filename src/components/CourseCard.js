@@ -45,7 +45,8 @@ export default function CourseCard(props) {
         container
         className={classes.courseCard}
         boxShadow={1}
-        my={2}>
+        my={2}
+        onClick={ openDrawer() }>
         {/* <Box
           component={Grid}
           item
@@ -138,14 +139,14 @@ export default function CourseCard(props) {
           xs={12}
           px={2}
           pb={2}>
-          <Button
+          {/* <Button
             variant="contained"
             color="primary"
             size='small'
             disableElevation
             onClick={openDrawer()}>
             KNOW MORE
-          </Button>
+          </Button> */}
         </Box>
       </Box>
       <Drawer
