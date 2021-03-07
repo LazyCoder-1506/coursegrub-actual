@@ -2,7 +2,8 @@ import React from "react"
 import { Box, Grid, Typography } from '@material-ui/core'
 import SearchBar from "./SearchBar"
 import { makeStyles } from '@material-ui/styles'
-import RecommendedCourses from "./RecommendedCourses";
+import RecommendedCourses from "./RecommendedCourses"
+import Recommendations from '../data/recommendations.json'
 
 const headStyles = makeStyles(() => ({
   header: {
@@ -13,6 +14,12 @@ const headStyles = makeStyles(() => ({
 
 export default function HomePage () {
   const classes = headStyles()
+
+  const recommendCourseList = Recommendations.map(rec => 
+    <RecommendedCourses
+      key={ rec.id }
+      topic={ rec.topic }
+      recCourses = { rec.courses } />)
 
   return (
     <React.Fragment>
@@ -48,7 +55,7 @@ export default function HomePage () {
         </Box>
         <Grid item xs={false} lg={2} />
       </Box>
-      <RecommendedCourses />
+      { recommendCourseList }
     </React.Fragment>
   );
 }

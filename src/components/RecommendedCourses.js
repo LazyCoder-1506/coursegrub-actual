@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Grid, Typography } from '@material-ui/core'
+import { Box, Grid, Link, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
 const pictures = [
@@ -18,7 +18,7 @@ const recomendStyles = makeStyles(() => ({
   },
 }));
 
-export default function RecommendedCourses () {
+export default function RecommendedCourses (props) {
   const classes = recomendStyles()
   
   return (
@@ -30,18 +30,16 @@ export default function RecommendedCourses () {
         style={{ marginBottom: "20px" }}>
         <Box component={ Grid } item xs={false} lg={1}></Box>
         <Box component={ Grid } item container xs={12} lg={10}>
-          <Box component={ Grid } item xs={12} lg={9}>
+          <Box component={ Grid } item xs={12} lg={12}>
             <Typography
               variant='h6'>
-              <strong>Recommended Courses in Python</strong>
+              <strong>Recommended Courses in { props.topic }</strong>
+              <Link href="#"> (View All)</Link>
             </Typography>
-          </Box>
-          <Box component={ Grid } item xs={12} lg={3}>
-            <a>View All</a>
           </Box>
           <Box component={ Grid } item xs={12} className={classes.courseList}>
             <Box padding={1}>
-              {pictures.map((picture, index) => (
+              {props.recCourses.map((picture, index) => (
                 <img src={picture} style={{ width : "200px", height: "150px", marginRight: "10px", marginLeft: "10px" }} />
               ))}
             </Box>
