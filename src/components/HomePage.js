@@ -2,6 +2,7 @@ import React from "react"
 import { Box, Grid, Typography } from '@material-ui/core'
 import SearchBar from "./SearchBar"
 import { makeStyles } from '@material-ui/styles'
+import RecommendedCourses from "./RecommendedCourses";
 
 const headStyles = makeStyles(() => ({
   header: {
@@ -20,7 +21,8 @@ export default function HomePage () {
         padding={2}
         container
         className={ classes.header }
-        alignItems='center'>
+        alignItems='center'
+        style={{ marginBottom: "30px" }}>
         <Grid item xs={false} lg={2} />
         <Box
           component={ Grid }
@@ -46,6 +48,7 @@ export default function HomePage () {
         </Box>
         <Grid item xs={false} lg={2} />
       </Box>
+      <RecommendedCourses />
     </React.Fragment>
   );
 }
