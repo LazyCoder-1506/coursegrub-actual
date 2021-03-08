@@ -10,6 +10,7 @@ import SideBar from './SideBar'
 const useStyles = makeStyles(() => ({
   courseCard: {
     backgroundColor: '#fff',
+    marginBottom: '10px',
     '&:hover': {
       boxShadow: '0px 3px 15px 5px #ddd',
       cursor: 'pointer'
@@ -46,7 +47,6 @@ export default function CourseCard(props) {
         container
         className={classes.courseCard}
         boxShadow={1}
-        my={2}
         onClick={ openDrawer() }>
         {/* <Box
           component={Grid}
@@ -63,12 +63,11 @@ export default function CourseCard(props) {
           item
           container
           xs={12}
-          paddingY={1}
-          paddingX={2}>
+          style={{ padding: "10px" }}>
           <Box
             component={Grid}
             item
-            xs={11}>
+            xs={12}>
             <Typography
               variant='subtitle1'
               display='block'
@@ -77,32 +76,19 @@ export default function CourseCard(props) {
               <strong>{ props.name }</strong>
             </Typography>
             <Typography
-              variant='body1'
+              variant='subtitle2'
               display='block'
               noWrap='true'
               className={classes.w100}>
               { props.instructors }{(props.university) ? ' - ' + props.university : ''}
             </Typography>
             <Typography
-              variant='body1'
+              variant='subtitle2'
               display='block'
               noWrap='true'
               className={classes.w100}>
               { props.platform }
             </Typography>
-          </Box>
-          <Box
-            component={ Grid }
-            item
-            container
-            xs={1}
-            justify='flex-end'
-            alignItems='flex-start'>
-            <Checkbox
-              icon={ <FavoriteBorderIcon /> }
-              checkedIcon={ <FavoriteIcon /> }
-              inputProps={{ 'aria-label': 'Favorite' }}>
-            </Checkbox>
           </Box>
           <Box
             component={ Grid }
@@ -114,8 +100,10 @@ export default function CourseCard(props) {
             <StarRateIcon fontSize='small' className={(props.stars > 3) ? classes.goldenStar : ''} />
             <StarRateIcon fontSize='small' className={(props.stars > 4) ? classes.goldenStar : ''} />
             <Typography
-              variant='body2'>
-              { props.reviews } reviews
+              variant='body2'
+              display='inline'
+              style={{ verticalAlign: "top", marginLeft: "5px" }}>
+              ({ props.reviews } reviews)
             </Typography>
           </Box>
           <Box
@@ -125,29 +113,9 @@ export default function CourseCard(props) {
             <Typography
               variant='body2'
               align='right'>
-              { props.certificate }
-            </Typography>
-            <Typography
-              variant='body2'
-              align='right'>
               { props.price }
             </Typography>
           </Box>
-        </Box>
-        <Box
-          component={ Grid }
-          item
-          xs={12}
-          px={2}
-          pb={2}>
-          {/* <Button
-            variant="contained"
-            color="primary"
-            size='small'
-            disableElevation
-            onClick={openDrawer()}>
-            KNOW MORE
-          </Button> */}
         </Box>
       </Box>
       <Drawer

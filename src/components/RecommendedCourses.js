@@ -26,21 +26,20 @@ export default function RecommendedCourses (props) {
       <Box
         component={ Grid }
         container
-        padding={2}
-        style={{ marginBottom: "20px" }}>
+        padding={2}>
         <Box component={ Grid } item xs={false} lg={1}></Box>
         <Box component={ Grid } item container xs={12} lg={10}>
           <Box component={ Grid } item xs={12} lg={12}>
             <Typography
               variant='h6'>
-              <strong>Recommended Courses in { props.topic }</strong>
+              <strong>{ props.topic } </strong>
               <Link href="#"> (View All)</Link>
             </Typography>
           </Box>
           <Box component={ Grid } item xs={12} className={classes.courseList}>
             <Box padding={1}>
               {props.recCourses.map((picture, index) => (
-                <img src={picture} style={{ width : "200px", height: "150px", marginRight: "10px", marginLeft: "10px" }} />
+                <img src={picture} style={{ width : "200px", height: "150px", marginRight: "5px", marginLeft: "5px" }} />
               ))}
             </Box>
           </Box>

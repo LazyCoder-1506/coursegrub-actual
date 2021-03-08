@@ -6,7 +6,7 @@ const useStyles = makeStyles(() => ({
   container: {
     boxSizing: 'border-box',
     width: '100%',
-    padding: '16px'
+    paddingRight: '16px'
   },
   form: {
     backgroundColor: '#fff',
@@ -21,10 +21,6 @@ const useStyles = makeStyles(() => ({
 }));
 
 const stars = [
-  {
-    value: 0,
-    label: '0',
-  },
   {
     value: 1,
     label: '1',
@@ -111,8 +107,8 @@ export default function FilterPanel () {
           <FormControl fullWidth={true}>
             <FormLabel component='legend'>Minimum Stars</FormLabel>
             <Slider
-              defaultValue={0}
-              min={0}
+              defaultValue={1}
+              min={1}
               max={5}
               step={1}
               marks={stars}

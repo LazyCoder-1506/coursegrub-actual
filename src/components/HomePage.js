@@ -55,6 +55,12 @@ export default function HomePage () {
         </Box>
         <Grid item xs={false} lg={2} />
       </Box>
+      <Typography
+        variant='h5'
+        align='center'
+        style={{ marginBottom: "10px" }}>
+        <strong>Recommended Courses</strong>
+      </Typography>
       { recommendCourseList }
     </React.Fragment>
   );

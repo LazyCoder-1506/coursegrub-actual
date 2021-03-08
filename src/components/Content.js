@@ -1,6 +1,8 @@
 import React from 'react'
 import Courses from '../data/data.json'
 import CourseCard from './CourseCard'
+import FilterPanel from './FilterPanel'
+import { Box, Grid, Typography } from '@material-ui/core'
 
 export default function Content () {
   const [sideContent, setSideContent] = React.useState('')
@@ -25,8 +27,24 @@ export default function Content () {
       sideContent={ sideContent } />)
   
   return (
-    <div>
-      { courseList }
-    </div>
+    <React.Fragment>
+      <Box component={ Grid } container>
+        <Grid item xs={false} lg={1}></Grid>
+        <Grid item xs={11} style={{ marginBottom: '5px' }}>
+          <Typography variant='body1' align='center' style={{ marginBottom: '5px' }}>{courseList.length} Results</Typography>
+        </Grid>
+        <Grid item xs={false} lg={1}></Grid>
+        <Grid item xs={false} lg={2}>
+          <FilterPanel />
+        </Grid>
+        <Grid item xs={12} lg={7}>
+        <div>
+          { courseList }
+        </div>
+        </Grid>
+        <Grid item xs={false} lg={2}></Grid>
+      </Box>
+    </React.Fragment>
+
   );
 }

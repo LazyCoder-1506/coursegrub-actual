@@ -19,14 +19,8 @@ export default function SearchBar () {
   return (
     <React.Fragment>
       <Box component={ Grid } container>
-        <Box
-          component={ Grid }
-          xs={12}
-          marginY={2}>
-          <form style={{width: '100%', display: 'flex'}}>
-            <IconButton>
-              <SearchIcon />
-            </IconButton>
+        <form style={{ display: "flex", width: '100%', marginBottom: '10px' }}>
+          <Box component={ Grid } item xs={11}>
             <TextField
               label='Search'
               fullWidth
@@ -34,8 +28,13 @@ export default function SearchBar () {
               variant='filled'
               InputProps={{ className: classes.searchBarStyle }}
             />
-          </form>
-        </Box>
+          </Box>
+          <Box component={ Grid } item xs={1} container justify='center'>
+            <IconButton>
+              <SearchIcon />
+            </IconButton>
+          </Box>
+        </form>
       </Box>
     </React.Fragment>
   );
