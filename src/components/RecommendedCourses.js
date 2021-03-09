@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box, Grid, Link, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 const pictures = [
   "https://www.maacgp.com/wp-content/uploads/2020/03/web-designing-courses-kolkata.jpg",
@@ -14,12 +16,41 @@ const pictures = [
 const recomendStyles = makeStyles(() => ({
   courseList: {
     overflowX: 'auto',
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
+    '&::-webkit-scrollbar': {
+      display: 'none'
+    },
+    scrollBehavior: 'smooth',
   },
+  scrollButton: {
+    backgroundColor: '#555',
+    height : '40px',
+    width: '40px',
+    borderRadius: '20px',
+    border: 'none',
+    outline: 'none',
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    '&:hover': {
+      backgroundColor: '#000000',
+    }
+  },
+  scrollContainer: {
+    position:'relative',
+    overflowX: 'hidden',
+    width: '100%'
+  }
 }));
 
 export default function RecommendedCourses (props) {
   const classes = recomendStyles()
+
+  const scrollRef = React.useRef(null)
+
+  const scroll = (scrollOffset) => {
+    scrollRef.current.scrollLeft += scrollOffset;
+  };
   
   return (
     <React.Fragment>
@@ -36,13 +67,21 @@ export default function RecommendedCourses (props) {
               <Link href="#"> (View All)</Link>
             </Typography>
           </Box>
-          <Box component={ Grid } item xs={12} className={classes.courseList}>
-            <Box padding={1}>
-              {props.recCourses.map((picture, index) => (
-                <img src={picture} style={{ width : "200px", height: "150px", marginRight: "5px", marginLeft: "5px" }} />
-              ))}
+          <div className={classes.scrollContainer}>
+            <button className={classes.scrollButton} onClick={() => scroll(-400)}>
+              <ChevronLeftIcon style={{ color: '#fff' }} />
+            </button>
+            <button className={classes.scrollButton} onClick={() => scroll(400)} style={{ right: '0' }}>
+              <ChevronRightIcon style={{ color: '#fff' }} />
+            </button>
+            <Box component={ Grid } item xs={12} className={classes.courseList} ref={ scrollRef }>
+              <Box padding={1}>
+                {props.recCourses.map((picture, index) => (
+                  <img src={picture} style={{ width : "200px", height: "150px", marginRight: "5px", marginLeft: "5px" }} />
+                ))}
+              </Box>
             </Box>
-          </Box>
+          </div>
         </Box>
         <Box component={ Grid } item xs={false} lg={1}></Box>
       </Box>
