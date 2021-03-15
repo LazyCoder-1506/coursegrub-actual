@@ -1,11 +1,23 @@
 import React from 'react'
 import { Tabs, Tab, Box, Typography, Grid, Checkbox, List, ListItem, ListItemText, Button } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import AllReviews from '../data/reviews.json'
 import Reviews from './Reviews'
 
+const sideStyles = makeStyles(() => ({
+  subtitle: {
+    fontWeight: 'bold',
+    color: '#333',
+    fontSize: '20px',
+    marginBottom: '0px'
+  }
+}));
+
 export default function SideBar(props) {
+  const classes = sideStyles()
+
   const [value, setValue] = React.useState(0)
   const handleTabs = (e, val) => {
     setValue(val)
@@ -45,7 +57,7 @@ export default function SideBar(props) {
             my={5}>
             <Typography
               variant='h4'>
-              { props.sideContent.name }
+              <strong>{ props.sideContent.name }</strong>
             </Typography>
           </Box>
           <Box
@@ -75,7 +87,7 @@ export default function SideBar(props) {
             component={Grid}
             item
             xs={12}
-            mb={5}>
+            style={{ marginBottom: '20px' }}>
             <Typography
               variant='h5'>
               { props.sideContent.platform }
@@ -86,6 +98,7 @@ export default function SideBar(props) {
             item
             xs={12}
             mb={1}>
+            <p className={classes.subtitle}>Course Description</p>
             <Typography
               variant='body1'>
               { props.sideContent.brief } 
@@ -95,16 +108,27 @@ export default function SideBar(props) {
             component={ Grid }
             item
             xs={12}>
+            <p className={classes.subtitle}>Price</p>
             <Typography
               variant='h6'>
-              Price : { props.sideContent.price }
+              { props.sideContent.price }
             </Typography>
           </Box>
           <Box
             component={ Grid }
             item
             xs={12}>
-            <List
+            <p className={classes.subtitle}>Certificate</p>
+            <Typography
+              variant='body1'>
+              { props.sideContent.certificate } 
+            </Typography>
+            <p className={classes.subtitle}>Duration of Course</p>
+            <Typography
+              variant='body1'>
+              { props.sideContent.duration } 
+            </Typography>
+            {/* <List
               dense='true'>
               <ListItem>
                 <ListItemText primary={`- ${props.sideContent.certificate}`} />
@@ -112,14 +136,16 @@ export default function SideBar(props) {
               <ListItem>
                 <ListItemText primary={`- ${props.sideContent.duration}`} />
               </ListItem>
-            </List>
+            </List> */}
           </Box>
           <Box
             component={ Grid }
             item
-            xs={12}>
+            xs={12}
+            style={{ marginTop: '10px' }}>
             <Button
-              color="primary">
+              color="primary"
+              variant='contained'>
               GO TO COURSE
             </Button>
           </Box>

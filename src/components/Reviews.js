@@ -19,7 +19,8 @@ export default function Reviews (props) {
     <Box
       component={ Grid }
       boxShadow={3}
-      marginBottom={3}>
+      marginBottom={3}
+      style={{ width: '100%'}}>
       <Card>
         <CardHeader
           avatar={
@@ -30,8 +31,9 @@ export default function Reviews (props) {
             </Avatar>}
           title={ props.name }
           subheader={ props.date }
+          style={{ paddingBottom: '0px' }}
         />
-        <CardContent>
+        <CardContent style={{ paddingTop: '0px' }}>
           <StarRateIcon className={(props.stars > 0) ? styles.goldenStar : ''} />
           <StarRateIcon className={(props.stars > 1) ? styles.goldenStar : ''} />
           <StarRateIcon className={(props.stars > 2) ? styles.goldenStar : ''} />

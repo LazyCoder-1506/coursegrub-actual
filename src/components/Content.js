@@ -29,20 +29,20 @@ export default function Content () {
   return (
     <React.Fragment>
       <Box component={ Grid } container>
-        <Grid item xs={false} lg={1}></Grid>
-        <Grid item xs={11} style={{ marginBottom: '5px' }}>
-          <Typography variant='body1' align='center' style={{ marginBottom: '5px' }}>{courseList.length} Results</Typography>
+        <Grid item xs={false} lg={3}></Grid>
+        <Grid item xs={9} style={{ marginBottom: '5px' }}>
+          <Typography variant='caption' style={{ marginBottom: '5px' }}>{courseList.length} Results</Typography>
         </Grid>
         <Grid item xs={false} lg={1}></Grid>
         <Grid item xs={false} lg={2}>
           <FilterPanel />
         </Grid>
-        <Grid item xs={12} lg={7}>
+        <Grid item xs={12} lg={8}>
         <div>
           { courseList }
         </div>
         </Grid>
-        <Grid item xs={false} lg={2}></Grid>
+        <Grid item xs={false} lg={1}></Grid>
       </Box>
     </React.Fragment>
 

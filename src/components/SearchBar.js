@@ -18,8 +18,8 @@ export default function SearchBar () {
   
   return (
     <React.Fragment>
-      <Box component={ Grid } container>
-        <form style={{ display: "flex", width: '100%', marginBottom: '10px' }}>
+      <Box component={ Grid } container style={{ marginTop: '10px' }}>
+        <form style={{ display: "flex", width: '100%', marginBottom: '5px' }}>
           <Box component={ Grid } item xs={11}>
             <TextField
               label='Search'

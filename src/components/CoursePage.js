@@ -9,10 +9,10 @@ export default function CoursePage () {
       <Grid container direction='column'>
         <Grid item container>
           <Grid item xs={false} lg={1}></Grid>
-          <Grid item xs={12} lg={9}>
+          <Grid item xs={12} lg={10}>
             <SearchBar />
           </Grid>
-          <Grid item xs={false} lg={2}></Grid>
+          <Grid item xs={false} lg={1}></Grid>
         </Grid>
         <Grid item container>
           <Content />
